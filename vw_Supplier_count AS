@@ -1,0 +1,6 @@
+Create View vw_Supplier_count AS
+Select 
+    SupplierID,
+    COUNT(*) AS SupplierID_Count
+From Dim_stockItems
+Group BY SupplierID;
