@@ -1,0 +1,2189 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/13/2025 10:13:45 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-SGJNJAK"
+  DTS:CreatorName="DESKTOP-SGJNJAK\DELL"
+  DTS:DTSID="{7DCB19FD-23F0-4824-9CBD-98926AB7A3B4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Customers"
+  DTS:PackageType="5"
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{284564BC-765D-4ED8-80F0-B045FB06D618}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-SGJNJAK.DWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A57EAAE1-6392-4DFD-AB98-34DF1CA77939}"
+      DTS:ObjectName="DESKTOP-SGJNJAK.DWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-SGJNJAK;Initial Catalog=DWH;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Customers-{A57EAAE1-6392-4DFD-AB98-34DF1CA77939}DESKTOP-SGJNJAK.DWH;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-SGJNJAK.Staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F0D043A8-A0BC-4145-B662-D63F0804A003}"
+      DTS:ObjectName="DESKTOP-SGJNJAK.Staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-SGJNJAK;Initial Catalog=Staging;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Customers-{F0D043A8-A0BC-4145-B662-D63F0804A003}DESKTOP-SGJNJAK.Staging;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{97474A17-F856-4361-970F-C34D84934EB1}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[LastEditedBy_Converted]"
+                      cachedDataType="i4"
+                      cachedName="LastEditedBy_Converted"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[LastEditedBy_Converted]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Conditional Split.Outputs[FilterOutLastEditedBy20]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="FilterOutLastEditedBy20"
+                  synchronousInputId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[LastEditedBy_Converted]} == 20</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">LastEditedBy_Converted == 20</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Conditional Split 1"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input].Columns[PostalAddressLine2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="PostalAddressLine2"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalAddressLine2]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Conditional Split 1.Outputs[PostalAddress]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="PostalAddress"
+                  synchronousInputId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalAddressLine2]}) || [LEFT]([TRIM](#{Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalAddressLine2]}),1) == "Z"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(PostalAddressLine2) || LEFT(TRIM(PostalAddressLine2),1) == "Z"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Conditional Split 1.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Conditional Split 1.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Customers_stage OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Customers_stage OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Customers_Staging]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Customers_stage OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-SGJNJAK.Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-SGJNJAK.Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerName]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerName]"
+                      name="CustomerName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[BillToCustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BillToCustomerID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[BillToCustomerID]"
+                      name="BillToCustomerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerCategoryID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerCategoryID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerCategoryID]"
+                      name="CustomerCategoryID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[BuyingGroupID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BuyingGroupID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[BuyingGroupID]"
+                      name="BuyingGroupID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PrimaryContactPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrimaryContactPersonID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PrimaryContactPersonID]"
+                      name="PrimaryContactPersonID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[AlternateContactPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AlternateContactPersonID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[AlternateContactPersonID]"
+                      name="AlternateContactPersonID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryMethodID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DeliveryMethodID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryMethodID]"
+                      name="DeliveryMethodID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryCityID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DeliveryCityID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryCityID]"
+                      name="DeliveryCityID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalCityID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostalCityID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalCityID]"
+                      name="PostalCityID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditLimit]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreditLimit]"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditLimit]"
+                      name="CreditLimit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountOpenedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AccountOpenedDate]"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountOpenedDate]"
+                      name="AccountOpenedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[StandardDiscountPercentage]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StandardDiscountPercentage]"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[StandardDiscountPercentage]"
+                      name="StandardDiscountPercentage"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[IsStatementSent]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IsStatementSent]"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[IsStatementSent]"
+                      name="IsStatementSent"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[IsOnCreditHold]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IsOnCreditHold]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[IsOnCreditHold]"
+                      name="IsOnCreditHold"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PaymentDays]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PaymentDays]"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PaymentDays]"
+                      name="PaymentDays"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PhoneNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PhoneNumber]"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PhoneNumber]"
+                      name="PhoneNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[FaxNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FaxNumber]"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[FaxNumber]"
+                      name="FaxNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryRun]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DeliveryRun]"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryRun]"
+                      name="DeliveryRun"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[RunPosition]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RunPosition]"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[RunPosition]"
+                      name="RunPosition"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[WebsiteURL]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WebsiteURL]"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[WebsiteURL]"
+                      name="WebsiteURL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryAddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DeliveryAddressLine1]"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryAddressLine1]"
+                      name="DeliveryAddressLine1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryAddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DeliveryAddressLine2]"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryAddressLine2]"
+                      name="DeliveryAddressLine2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryPostalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DeliveryPostalCode]"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryPostalCode]"
+                      name="DeliveryPostalCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryLocation]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DeliveryLocation]"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryLocation]"
+                      name="DeliveryLocation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalAddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostalAddressLine1]"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalAddressLine1]"
+                      name="PostalAddressLine1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalAddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostalAddressLine2]"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalAddressLine2]"
+                      name="PostalAddressLine2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalPostalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostalPostalCode]"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalPostalCode]"
+                      name="PostalPostalCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[LastEditedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastEditedBy]"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[LastEditedBy]"
+                      name="LastEditedBy"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[ValidFrom]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ValidFrom]"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[ValidFrom]"
+                      name="ValidFrom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[ValidTo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ValidTo]"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[ValidTo]"
+                      name="ValidTo"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CustomerName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BillToCustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BillToCustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerCategoryID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CustomerCategoryID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BuyingGroupID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BuyingGroupID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrimaryContactPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PrimaryContactPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AlternateContactPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AlternateContactPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DeliveryMethodID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DeliveryMethodID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DeliveryCityID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DeliveryCityID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostalCityID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PostalCityID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreditLimit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="CreditLimit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AccountOpenedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="AccountOpenedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StandardDiscountPercentage]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="StandardDiscountPercentage" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IsStatementSent]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="IsStatementSent" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IsOnCreditHold]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="IsOnCreditHold" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PaymentDays]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PaymentDays" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PhoneNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PhoneNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FaxNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="FaxNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DeliveryRun]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="DeliveryRun" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RunPosition]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="RunPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WebsiteURL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="WebsiteURL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DeliveryAddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="DeliveryAddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DeliveryAddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="DeliveryAddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DeliveryPostalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="DeliveryPostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DeliveryLocation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="DeliveryLocation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostalAddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PostalAddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostalAddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PostalAddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostalPostalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PostalPostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastEditedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="LastEditedBy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ValidFrom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="ValidFrom" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ValidTo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="ValidTo" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      name="CustomerID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerName]"
+                      name="CustomerName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BillToCustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BillToCustomerID]"
+                      name="BillToCustomerID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerCategoryID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerCategoryID]"
+                      name="CustomerCategoryID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BuyingGroupID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BuyingGroupID]"
+                      name="BuyingGroupID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrimaryContactPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrimaryContactPersonID]"
+                      name="PrimaryContactPersonID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AlternateContactPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AlternateContactPersonID]"
+                      name="AlternateContactPersonID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DeliveryMethodID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DeliveryMethodID]"
+                      name="DeliveryMethodID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DeliveryCityID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DeliveryCityID]"
+                      name="DeliveryCityID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostalCityID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostalCityID]"
+                      name="PostalCityID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreditLimit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreditLimit]"
+                      name="CreditLimit" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AccountOpenedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AccountOpenedDate]"
+                      name="AccountOpenedDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StandardDiscountPercentage]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StandardDiscountPercentage]"
+                      name="StandardDiscountPercentage" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IsStatementSent]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IsStatementSent]"
+                      name="IsStatementSent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IsOnCreditHold]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IsOnCreditHold]"
+                      name="IsOnCreditHold" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PaymentDays]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PaymentDays]"
+                      name="PaymentDays" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PhoneNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PhoneNumber]"
+                      name="PhoneNumber" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FaxNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FaxNumber]"
+                      name="FaxNumber" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DeliveryRun]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DeliveryRun]"
+                      name="DeliveryRun" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RunPosition]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RunPosition]"
+                      name="RunPosition" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WebsiteURL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WebsiteURL]"
+                      name="WebsiteURL" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DeliveryAddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DeliveryAddressLine1]"
+                      name="DeliveryAddressLine1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DeliveryAddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DeliveryAddressLine2]"
+                      name="DeliveryAddressLine2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DeliveryPostalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DeliveryPostalCode]"
+                      name="DeliveryPostalCode" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DeliveryLocation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DeliveryLocation]"
+                      name="DeliveryLocation" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostalAddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostalAddressLine1]"
+                      name="PostalAddressLine1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostalAddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostalAddressLine2]"
+                      name="PostalAddressLine2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostalPostalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostalPostalCode]"
+                      name="PostalPostalCode" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastEditedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastEditedBy]"
+                      name="LastEditedBy" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ValidFrom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ValidFrom]"
+                      name="ValidFrom" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ValidTo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ValidTo]"
+                      name="ValidTo" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[LastEditedBy]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="LastEditedBy"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[LastEditedBy]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[LastEditedBy_Converted]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[LastEditedBy_Converted]"
+                      name="LastEditedBy_Converted"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[LastEditedBy]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[PostalPostalCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="PostalPostalCode"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalPostalCode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[PostalAddressLine1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="PostalAddressLine1"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalAddressLine1]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[PostalAddressLine2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="PostalAddressLine2"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalAddressLine2]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[PostalPostalCode_4]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[PostalPostalCode_4]"
+                      name="PostalPostalCode_4"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[RIGHT](#{Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalPostalCode]},4)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">RIGHT(PostalPostalCode,4)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[FullAddressLine]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="702"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[FullAddressLine]"
+                      name="FullAddressLine"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalAddressLine1]} + ([ISNULL](#{Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalAddressLine2]}) ? "" : ", " + #{Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalAddressLine2]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">PostalAddressLine1 + (ISNULL(PostalAddressLine2) ? "" : ", " + PostalAddressLine2)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Dim_customers OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Dim_customers OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Dim_customers]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-SGJNJAK.DWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-SGJNJAK.DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CustomerName"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerName]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BillToCustomerID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="BillToCustomerID"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BillToCustomerID]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[BillToCustomerID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerCategoryID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CustomerCategoryID"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerCategoryID]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerCategoryID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BuyingGroupID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="BuyingGroupID"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BuyingGroupID]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[BuyingGroupID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PrimaryContactPersonID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PrimaryContactPersonID"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PrimaryContactPersonID]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PrimaryContactPersonID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AlternateContactPersonID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AlternateContactPersonID"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AlternateContactPersonID]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[AlternateContactPersonID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DeliveryMethodID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DeliveryMethodID"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryMethodID]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryMethodID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DeliveryCityID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DeliveryCityID"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryCityID]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryCityID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PostalCityID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PostalCityID"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostalCityID]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalCityID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreditLimit]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="CreditLimit"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreditLimit]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditLimit]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AccountOpenedDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="AccountOpenedDate"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AccountOpenedDate]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountOpenedDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StandardDiscountPercentage]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="StandardDiscountPercentage"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StandardDiscountPercentage]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[StandardDiscountPercentage]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IsStatementSent]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="IsStatementSent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsStatementSent]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[IsStatementSent]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IsOnCreditHold]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="IsOnCreditHold"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsOnCreditHold]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[IsOnCreditHold]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PaymentDays]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="PaymentDays"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PaymentDays]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PaymentDays]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PhoneNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="PhoneNumber"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumber]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PhoneNumber]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FaxNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="FaxNumber"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FaxNumber]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[FaxNumber]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DeliveryRun]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="DeliveryRun"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryRun]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryRun]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RunPosition]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="RunPosition"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RunPosition]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[RunPosition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WebsiteURL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="WebsiteURL"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WebsiteURL]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[WebsiteURL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DeliveryAddressLine1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="DeliveryAddressLine1"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryAddressLine1]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryAddressLine1]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DeliveryAddressLine2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="DeliveryAddressLine2"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryAddressLine2]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryAddressLine2]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DeliveryPostalCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="DeliveryPostalCode"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryPostalCode]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryPostalCode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DeliveryLocation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="DeliveryLocation"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryLocation]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[DeliveryLocation]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PostalAddressLine1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="PostalAddressLine1"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostalAddressLine1]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalAddressLine1]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PostalAddressLine2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="PostalAddressLine2"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostalAddressLine2]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalAddressLine2]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PostalPostalCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="PostalPostalCode"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostalPostalCode]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalPostalCode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastEditedBy]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="LastEditedBy"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastEditedBy]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[LastEditedBy]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ValidFrom]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="ValidFrom"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[ValidFrom]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ValidTo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="ValidTo"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidTo]"
+                      lineageId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output].Columns[ValidTo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastEditedBy_Converted]"
+                      cachedDataType="i4"
+                      cachedName="LastEditedBy_Converted"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastEditedBy_Converted]"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[LastEditedBy_Converted]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PostalPostalCode_4]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="PostalPostalCode_4"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostalPostalCode_4]"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[PostalPostalCode_4]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FullAddressLine]"
+                      cachedDataType="wstr"
+                      cachedLength="702"
+                      cachedName="FullAddressLine"
+                      externalMetadataColumnId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FullAddressLine]"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[FullAddressLine]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CustomerName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BillToCustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BillToCustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerCategoryID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CustomerCategoryID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BuyingGroupID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BuyingGroupID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PrimaryContactPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PrimaryContactPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AlternateContactPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AlternateContactPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryMethodID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DeliveryMethodID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryCityID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DeliveryCityID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostalCityID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PostalCityID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreditLimit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="CreditLimit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AccountOpenedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="AccountOpenedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StandardDiscountPercentage]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="StandardDiscountPercentage" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsStatementSent]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="IsStatementSent" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsOnCreditHold]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="IsOnCreditHold" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PaymentDays]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PaymentDays" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PhoneNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FaxNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="FaxNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryRun]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="DeliveryRun" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RunPosition]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="RunPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WebsiteURL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="WebsiteURL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryAddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="DeliveryAddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryAddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="DeliveryAddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryPostalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="DeliveryPostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryLocation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="DeliveryLocation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostalAddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PostalAddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostalAddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PostalAddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostalPostalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PostalPostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastEditedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="LastEditedBy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="ValidFrom" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidTo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="ValidTo" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastEditedBy_Converted]"
+                      dataType="i4"
+                      name="LastEditedBy_Converted" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostalPostalCode_4]"
+                      dataType="wstr"
+                      length="4"
+                      name="PostalPostalCode_4" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FullAddressLine]"
+                      dataType="wstr"
+                      length="702"
+                      name="FullAddressLine" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Dim_customers OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dim_customers OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Dim_customers OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Conditional Split Default Output]"
+              endId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input]"
+              name="Conditional Split Default Output"
+              startId="Package\Data Flow Task\Conditional Split.Outputs[Conditional Split Default Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Conditional Split Default Output1]"
+              endId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+              name="Conditional Split Default Output"
+              startId="Package\Data Flow Task\Conditional Split 1.Outputs[Conditional Split Default Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Derived Column Output]"
+              endId="Package\Data Flow Task\Dim_customers OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\Customers_stage OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{179858be-7279-4d6f-aca3-d082e51cd0a5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A57EAAE1-6392-4DFD-AB98-34DF1CA77939}"
+          SQLTask:SqlStatementSource="Delete from Dim_customers" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{5EB2268E-2855-49CB-AEF4-056E9DD263BD}"
+      DTS:From="Package\Truncate"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task"
+          TopLeft="492,151" />
+        <NodeLayout
+          Size="122,42"
+          Id="Package\Truncate"
+          TopLeft="312,48" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="373,90">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="196.5,61"
+              Start="0,0"
+              End="196.5,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="4,30.5" />
+                  <mssgle:LineSegment
+                    End="192.5,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="192.5,30.5"
+                    Point2="196.5,30.5"
+                    Point3="196.5,34.5" />
+                  <mssgle:LineSegment
+                    End="196.5,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Data Flow Task\Conditional Split 1"
+          TopLeft="594,379" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Data Flow Task\Conditional Split"
+          TopLeft="561,293" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Data Flow Task\Data Conversion"
+          TopLeft="508,196" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Data Flow Task\Derived Column"
+          TopLeft="655,453" />
+        <NodeLayout
+          Size="246,42"
+          Id="Package\Data Flow Task\Customers_stage OLE DB Source"
+          TopLeft="442,97" />
+        <NodeLayout
+          Size="257,42"
+          Id="Package\Data Flow Task\Dim_customers OLE DB Destination"
+          TopLeft="723,555" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="565,139">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23.5,57"
+              Start="0,0"
+              End="23.5,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5"
+                    Point2="0,28.5"
+                    Point3="4,28.5" />
+                  <mssgle:LineSegment
+                    End="19.5,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.5,28.5"
+                    Point2="23.5,28.5"
+                    Point3="23.5,32.5" />
+                  <mssgle:LineSegment
+                    End="23.5,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="734,495">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="117.5,60"
+              Start="0,0"
+              End="117.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="113.5,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="113.5,30"
+                    Point2="117.5,30"
+                    Point3="117.5,34" />
+                  <mssgle:LineSegment
+                    End="117.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="588.5,238">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52,55"
+              Start="0,0"
+              End="52,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.5"
+                    Point2="0,27.5"
+                    Point3="4,27.5" />
+                  <mssgle:LineSegment
+                    End="48,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="48,27.5"
+                    Point2="52,27.5"
+                    Point3="52,31.5" />
+                  <mssgle:LineSegment
+                    End="52,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Conditional Split Default Output1]"
+          TopLeft="678,421">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="56,32"
+              Start="0,0"
+              End="56,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12"
+                    Point2="0,16"
+                    Point3="4,16" />
+                  <mssgle:LineSegment
+                    End="52,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="52,16"
+                    Point2="56,16"
+                    Point3="56,20" />
+                  <mssgle:LineSegment
+                    End="56,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-42.61390625,21,141.2278125,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Conditional Split Default Output]"
+          TopLeft="640.5,335">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="37.5,44"
+              Start="0,0"
+              End="37.5,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18"
+                    Point2="0,22"
+                    Point3="4,22" />
+                  <mssgle:LineSegment
+                    End="33.5,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="33.5,22"
+                    Point2="37.5,22"
+                    Point3="37.5,26" />
+                  <mssgle:LineSegment
+                    End="37.5,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-51.86390625,27,141.2278125,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Customers_stage OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Dim_customers OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

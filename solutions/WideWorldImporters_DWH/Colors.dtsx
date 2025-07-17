@@ -1,0 +1,582 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/13/2025 2:45:33 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-SGJNJAK"
+  DTS:CreatorName="DESKTOP-SGJNJAK\DELL"
+  DTS:DTSID="{D3D8557D-C660-4A27-8E4E-FF1AC07897E8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Colors"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{1DAF0847-0762-4F7A-9F0D-1E20477E30B6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-SGJNJAK.DWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C9E1FA9F-37B3-45DC-95ED-43B731578D37}"
+      DTS:ObjectName="DESKTOP-SGJNJAK.DWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-SGJNJAK;Initial Catalog=DWH;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Colors-{C9E1FA9F-37B3-45DC-95ED-43B731578D37}DESKTOP-SGJNJAK.DWH;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-SGJNJAK.Staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4394E3CC-004E-4C5D-B182-BCD4F14C2C3C}"
+      DTS:ObjectName="DESKTOP-SGJNJAK.Staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-SGJNJAK;Initial Catalog=Staging;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Colors-{4394E3CC-004E-4C5D-B182-BCD4F14C2C3C}DESKTOP-SGJNJAK.Staging;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Colors_Flow_Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F37EE668-9E7D-4E4E-8337-7B506D6B542E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Colors_Flow_Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Colors_Stage OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Colors_Staging]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-SGJNJAK.Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-SGJNJAK.Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output].Columns[ColorID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ColorID]"
+                      length="50"
+                      lineageId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output].Columns[ColorID]"
+                      name="ColorID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output].Columns[ColorName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ColorName]"
+                      length="350"
+                      lineageId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output].Columns[ColorName]"
+                      name="ColorName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output].Columns[LastEditedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastEditedBy]"
+                      length="350"
+                      lineageId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output].Columns[LastEditedBy]"
+                      name="LastEditedBy"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output].Columns[ValidFrom]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ValidFrom]"
+                      length="350"
+                      lineageId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output].Columns[ValidFrom]"
+                      name="ValidFrom"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ColorID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ColorID" />
+                    <externalMetadataColumn
+                      refId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ColorName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="ColorName" />
+                    <externalMetadataColumn
+                      refId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastEditedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="LastEditedBy" />
+                    <externalMetadataColumn
+                      refId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ValidFrom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="ValidFrom" />
+                    <externalMetadataColumn
+                      refId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ValidTo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="ValidTo" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ColorID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ColorID]"
+                      name="ColorID" />
+                    <outputColumn
+                      refId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ColorName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ColorName]"
+                      name="ColorName" />
+                    <outputColumn
+                      refId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastEditedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastEditedBy]"
+                      name="LastEditedBy" />
+                    <outputColumn
+                      refId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ValidFrom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ValidFrom]"
+                      name="ValidFrom" />
+                    <outputColumn
+                      refId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Dim_Colors OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Dim_Colors]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-SGJNJAK.DWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-SGJNJAK.DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ColorID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ColorID"
+                      externalMetadataColumnId="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ColorID]"
+                      lineageId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output].Columns[ColorID]" />
+                    <inputColumn
+                      refId="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ColorName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="ColorName"
+                      externalMetadataColumnId="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ColorName]"
+                      lineageId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output].Columns[ColorName]" />
+                    <inputColumn
+                      refId="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastEditedBy]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="LastEditedBy"
+                      externalMetadataColumnId="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastEditedBy]"
+                      lineageId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output].Columns[LastEditedBy]" />
+                    <inputColumn
+                      refId="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ValidFrom]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="ValidFrom"
+                      externalMetadataColumnId="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
+                      lineageId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output].Columns[ValidFrom]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ColorID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ColorID" />
+                    <externalMetadataColumn
+                      refId="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ColorName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="ColorName" />
+                    <externalMetadataColumn
+                      refId="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastEditedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="LastEditedBy" />
+                    <externalMetadataColumn
+                      refId="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="ValidFrom" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Colors_Flow_Task.Paths[OLE DB Source Output]"
+              endId="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Colors_Flow_Task\Colors_Stage OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{f600c579-b104-4dc9-b631-2103a9b86621}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C9E1FA9F-37B3-45DC-95ED-43B731578D37}"
+          SQLTask:SqlStatementSource="Delete from Dim_Colors" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{20A2DD1B-4FCB-440F-BD93-7DBA0937925C}"
+      DTS:From="Package\Truncate"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Colors_Flow_Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Colors_Flow_Task"
+          TopLeft="507,122" />
+        <NodeLayout
+          Size="122,42"
+          Id="Package\Truncate"
+          TopLeft="319,17" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="380,59">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="212,63"
+              Start="0,0"
+              End="212,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.5"
+                    Point2="0,31.5"
+                    Point3="4,31.5" />
+                  <mssgle:LineSegment
+                    End="208,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="208,31.5"
+                    Point2="212,31.5"
+                    Point3="212,35.5" />
+                  <mssgle:LineSegment
+                    End="212,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Colors_Flow_Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="227,42"
+          Id="Package\Colors_Flow_Task\Colors_Stage OLE DB Source"
+          TopLeft="500,60" />
+        <NodeLayout
+          Size="238,42"
+          Id="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination"
+          TopLeft="508,217" />
+        <EdgeLayout
+          Id="Package\Colors_Flow_Task.Paths[OLE DB Source Output]"
+          TopLeft="613.5,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.5,115"
+              Start="0,0"
+              End="13.5,107.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,53.5"
+                    Point2="0,57.5"
+                    Point3="4,57.5" />
+                  <mssgle:LineSegment
+                    End="9.5,57.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.5,57.5"
+                    Point2="13.5,57.5"
+                    Point3="13.5,61.5" />
+                  <mssgle:LineSegment
+                    End="13.5,107.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Colors_Flow_Task\Dim_Colors OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Colors_Flow_Task\Colors_Stage OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
