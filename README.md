@@ -39,10 +39,9 @@ The solution consists of two main components:
 
 ## Repository Contents
 
-- `screenshots/`: Evidence of implementation
+- `snapshots/`: Evidence of implementation
 - `scripts/`: SQL scripts including view definition
 - `solutions/`: SSIS solution files
-- `docs/`: Additional documentation
 
 ## Setup Instructions
 
