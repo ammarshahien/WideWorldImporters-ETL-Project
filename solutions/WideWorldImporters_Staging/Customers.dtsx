@@ -1,0 +1,1977 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/9/2025 10:00:44 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-SGJNJAK"
+  DTS:CreatorName="DESKTOP-SGJNJAK\DELL"
+  DTS:DTSID="{56E33449-1D9C-4EE9-BE31-FD7EDAC0A902}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Customers"
+  DTS:PackageType="5"
+  DTS:VersionBuild="45"
+  DTS:VersionGUID="{A6FB1956-80E6-4EC4-9F3D-8EA5D2E4AA33}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Customers_staging_source]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{ABE403C2-E0B3-4A98-B6F6-89CC1FC42FA0}"
+      DTS:ObjectName="Customers_staging_source">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\DELL\Downloads\Data_project\Customers.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomerID"
+              DTS:DTSID="{C1688002-4742-43F8-B352-90CC8A239AD0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomerName"
+              DTS:DTSID="{3DD3BFDA-6947-4AF5-9CF1-F9F2B34DE421}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BillToCustomerID"
+              DTS:DTSID="{E62F308F-51C6-40C3-A8BF-1E1C13161539}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomerCategoryID"
+              DTS:DTSID="{FD18AFDD-07EB-4B78-BFEA-B00EB5187A88}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BuyingGroupID"
+              DTS:DTSID="{4526C077-46C8-47E4-BA25-BDFDEFC1185E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PrimaryContactPersonID"
+              DTS:DTSID="{7EB085D2-8244-4850-93E9-13A1B3848B19}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AlternateContactPersonID"
+              DTS:DTSID="{EB2CDFDE-61D7-4504-B37E-3B9254844178}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DeliveryMethodID"
+              DTS:DTSID="{C22714EA-3022-491B-B59E-711DEC6AA25F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DeliveryCityID"
+              DTS:DTSID="{4CA1DF0C-DF89-47C2-8589-5A6B3C0A5463}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PostalCityID"
+              DTS:DTSID="{6611EF4D-E91F-444B-AE0D-37D14CCC6B24}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CreditLimit"
+              DTS:DTSID="{4307A21C-3D16-45C8-9684-B34B6A326493}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccountOpenedDate"
+              DTS:DTSID="{AB412117-3EB5-4377-A07F-C4DC7548C0AD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StandardDiscountPercentage"
+              DTS:DTSID="{FD1F98A5-0926-4A89-AA5B-BC761DE12956}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IsStatementSent"
+              DTS:DTSID="{12569EDC-17C7-4A43-AA26-5461699EB179}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IsOnCreditHold"
+              DTS:DTSID="{B29A75C4-AF3B-4F3B-9985-45F2499F8265}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PaymentDays"
+              DTS:DTSID="{4273D753-1BCC-4022-8D3E-2CE97612FFBE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PhoneNumber"
+              DTS:DTSID="{586AED9B-48E8-4267-8091-F9E856A42B51}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FaxNumber"
+              DTS:DTSID="{F9C385F3-6C7E-46C1-A984-B270FBEA22FF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DeliveryRun"
+              DTS:DTSID="{EF093E2A-8E7C-4673-9AF3-DF87F364AA9E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RunPosition"
+              DTS:DTSID="{BFE2D09F-B174-4DEB-AC9B-7665EC625091}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WebsiteURL"
+              DTS:DTSID="{B69B4A06-FA87-4017-8BA3-C471E22DE851}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DeliveryAddressLine1"
+              DTS:DTSID="{C396EB0D-D733-4384-8253-3646CD189C71}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DeliveryAddressLine2"
+              DTS:DTSID="{B556A3CC-F2D4-43A8-8D00-478311C92054}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DeliveryPostalCode"
+              DTS:DTSID="{368759FE-EF7F-43C6-B931-A6C8D21DEEC9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DeliveryLocation"
+              DTS:DTSID="{35074DE7-70DB-4779-935B-94A48D3D834D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PostalAddressLine1"
+              DTS:DTSID="{722122EC-ECA1-41C8-AB09-9415441FFA6E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PostalAddressLine2"
+              DTS:DTSID="{DF7CE6B9-9A50-4089-8AE7-0FBDE5ACD467}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PostalPostalCode"
+              DTS:DTSID="{D653E90C-389E-4666-9834-20DE026CEA01}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastEditedBy"
+              DTS:DTSID="{2D440D61-4DA0-4415-96BB-89669CEB2177}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ValidFrom"
+              DTS:DTSID="{73698FAA-AA0A-47F9-978B-A0D6E5988BF6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ValidTo"
+              DTS:DTSID="{4F1DDD0F-6FD1-4BC9-9E2B-A71DE19B7E3A}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-SGJNJAK.Staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{11D0C54D-2AFB-49B4-B27A-491CD74CDAB3}"
+      DTS:ObjectName="DESKTOP-SGJNJAK.Staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-SGJNJAK;Initial Catalog=Staging;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Customers-{11D0C54D-2AFB-49B4-B27A-491CD74CDAB3}DESKTOP-SGJNJAK.Staging;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Customers_Flow"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{CF35001F-EE6E-4181-BA8E-0A48B26A2C10}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Customers_Flow"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Customers_Flow\Customers_Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Customers_Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Customers_Flow\Customers_Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Customers_staging_source]"
+                  connectionManagerRefId="Package.ConnectionManagers[Customers_staging_source]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[CustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[CustomerID]"
+                      length="50"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[CustomerID]"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[CustomerName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[CustomerName]"
+                      length="50"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[CustomerName]"
+                      name="CustomerName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[BillToCustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[BillToCustomerID]"
+                      length="50"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[BillToCustomerID]"
+                      name="BillToCustomerID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[CustomerCategoryID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[CustomerCategoryID]"
+                      length="50"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[CustomerCategoryID]"
+                      name="CustomerCategoryID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[BuyingGroupID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[BuyingGroupID]"
+                      length="50"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[BuyingGroupID]"
+                      name="BuyingGroupID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[PrimaryContactPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[PrimaryContactPersonID]"
+                      length="50"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[PrimaryContactPersonID]"
+                      name="PrimaryContactPersonID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[AlternateContactPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[AlternateContactPersonID]"
+                      length="50"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[AlternateContactPersonID]"
+                      name="AlternateContactPersonID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[DeliveryMethodID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[DeliveryMethodID]"
+                      length="50"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[DeliveryMethodID]"
+                      name="DeliveryMethodID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[DeliveryCityID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[DeliveryCityID]"
+                      length="50"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[DeliveryCityID]"
+                      name="DeliveryCityID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[PostalCityID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[PostalCityID]"
+                      length="50"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[PostalCityID]"
+                      name="PostalCityID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[CreditLimit]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[CreditLimit]"
+                      length="350"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[CreditLimit]"
+                      name="CreditLimit"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[AccountOpenedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[AccountOpenedDate]"
+                      length="350"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[AccountOpenedDate]"
+                      name="AccountOpenedDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[StandardDiscountPercentage]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[StandardDiscountPercentage]"
+                      length="350"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[StandardDiscountPercentage]"
+                      name="StandardDiscountPercentage"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[IsStatementSent]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[IsStatementSent]"
+                      length="350"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[IsStatementSent]"
+                      name="IsStatementSent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[IsOnCreditHold]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[IsOnCreditHold]"
+                      length="50"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[IsOnCreditHold]"
+                      name="IsOnCreditHold"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[PaymentDays]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[PaymentDays]"
+                      length="350"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[PaymentDays]"
+                      name="PaymentDays"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[PhoneNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[PhoneNumber]"
+                      length="350"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[PhoneNumber]"
+                      name="PhoneNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[FaxNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[FaxNumber]"
+                      length="350"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[FaxNumber]"
+                      name="FaxNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[DeliveryRun]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[DeliveryRun]"
+                      length="350"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[DeliveryRun]"
+                      name="DeliveryRun"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[RunPosition]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[RunPosition]"
+                      length="350"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[RunPosition]"
+                      name="RunPosition"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[WebsiteURL]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[WebsiteURL]"
+                      length="350"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[WebsiteURL]"
+                      name="WebsiteURL"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[DeliveryAddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[DeliveryAddressLine1]"
+                      length="350"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[DeliveryAddressLine1]"
+                      name="DeliveryAddressLine1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[DeliveryAddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[DeliveryAddressLine2]"
+                      length="350"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[DeliveryAddressLine2]"
+                      name="DeliveryAddressLine2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[DeliveryPostalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[DeliveryPostalCode]"
+                      length="350"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[DeliveryPostalCode]"
+                      name="DeliveryPostalCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[DeliveryLocation]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[DeliveryLocation]"
+                      length="350"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[DeliveryLocation]"
+                      name="DeliveryLocation"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[PostalAddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[PostalAddressLine1]"
+                      length="350"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[PostalAddressLine1]"
+                      name="PostalAddressLine1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[PostalAddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[PostalAddressLine2]"
+                      length="350"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[PostalAddressLine2]"
+                      name="PostalAddressLine2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[PostalPostalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[PostalPostalCode]"
+                      length="350"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[PostalPostalCode]"
+                      name="PostalPostalCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[LastEditedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[LastEditedBy]"
+                      length="350"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[LastEditedBy]"
+                      name="LastEditedBy"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[ValidFrom]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[ValidFrom]"
+                      length="350"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[ValidFrom]"
+                      name="ValidFrom"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[ValidTo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[ValidTo]"
+                      length="350"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[ValidTo]"
+                      name="ValidTo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[CustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[CustomerName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CustomerName" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[BillToCustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BillToCustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[CustomerCategoryID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CustomerCategoryID" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[BuyingGroupID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BuyingGroupID" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[PrimaryContactPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PrimaryContactPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[AlternateContactPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AlternateContactPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[DeliveryMethodID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DeliveryMethodID" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[DeliveryCityID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DeliveryCityID" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[PostalCityID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PostalCityID" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[CreditLimit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="CreditLimit" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[AccountOpenedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="AccountOpenedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[StandardDiscountPercentage]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="StandardDiscountPercentage" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[IsStatementSent]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="IsStatementSent" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[IsOnCreditHold]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="IsOnCreditHold" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[PaymentDays]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PaymentDays" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[PhoneNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PhoneNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[FaxNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="FaxNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[DeliveryRun]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="DeliveryRun" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[RunPosition]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="RunPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[WebsiteURL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="WebsiteURL" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[DeliveryAddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="DeliveryAddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[DeliveryAddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="DeliveryAddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[DeliveryPostalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="DeliveryPostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[DeliveryLocation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="DeliveryLocation" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[PostalAddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PostalAddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[PostalAddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PostalAddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[PostalPostalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PostalPostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[LastEditedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="LastEditedBy" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[ValidFrom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="ValidFrom" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].ExternalColumns[ValidTo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="ValidTo" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Customers_Flow\Customers_Staging_Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Customers_Staging_Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Customers_Staging]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Customers_Flow\Customers_Staging_Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-SGJNJAK.Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-SGJNJAK.Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[CustomerName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CustomerName"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerName]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[CustomerName]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[BillToCustomerID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="BillToCustomerID"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[BillToCustomerID]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[BillToCustomerID]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[CustomerCategoryID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CustomerCategoryID"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerCategoryID]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[CustomerCategoryID]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[BuyingGroupID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="BuyingGroupID"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[BuyingGroupID]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[BuyingGroupID]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[PrimaryContactPersonID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PrimaryContactPersonID"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[PrimaryContactPersonID]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[PrimaryContactPersonID]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[AlternateContactPersonID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AlternateContactPersonID"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[AlternateContactPersonID]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[AlternateContactPersonID]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[DeliveryMethodID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DeliveryMethodID"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryMethodID]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[DeliveryMethodID]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[DeliveryCityID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DeliveryCityID"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryCityID]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[DeliveryCityID]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[PostalCityID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PostalCityID"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostalCityID]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[PostalCityID]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[CreditLimit]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="CreditLimit"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreditLimit]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[CreditLimit]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[AccountOpenedDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="AccountOpenedDate"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[AccountOpenedDate]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[AccountOpenedDate]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[StandardDiscountPercentage]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="StandardDiscountPercentage"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[StandardDiscountPercentage]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[StandardDiscountPercentage]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[IsStatementSent]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="IsStatementSent"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsStatementSent]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[IsStatementSent]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[IsOnCreditHold]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="IsOnCreditHold"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsOnCreditHold]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[IsOnCreditHold]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[PaymentDays]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="PaymentDays"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[PaymentDays]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[PaymentDays]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[PhoneNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="PhoneNumber"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumber]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[PhoneNumber]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[FaxNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="FaxNumber"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[FaxNumber]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[FaxNumber]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[DeliveryRun]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="DeliveryRun"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryRun]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[DeliveryRun]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[RunPosition]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="RunPosition"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[RunPosition]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[RunPosition]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[WebsiteURL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="WebsiteURL"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[WebsiteURL]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[WebsiteURL]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[DeliveryAddressLine1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="DeliveryAddressLine1"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryAddressLine1]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[DeliveryAddressLine1]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[DeliveryAddressLine2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="DeliveryAddressLine2"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryAddressLine2]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[DeliveryAddressLine2]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[DeliveryPostalCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="DeliveryPostalCode"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryPostalCode]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[DeliveryPostalCode]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[DeliveryLocation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="DeliveryLocation"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryLocation]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[DeliveryLocation]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[PostalAddressLine1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="PostalAddressLine1"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostalAddressLine1]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[PostalAddressLine1]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[PostalAddressLine2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="PostalAddressLine2"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostalAddressLine2]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[PostalAddressLine2]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[PostalPostalCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="PostalPostalCode"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostalPostalCode]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[PostalPostalCode]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[LastEditedBy]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="LastEditedBy"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastEditedBy]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[LastEditedBy]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[ValidFrom]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="ValidFrom"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[ValidFrom]" />
+                    <inputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].Columns[ValidTo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="ValidTo"
+                      externalMetadataColumnId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidTo]"
+                      lineageId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output].Columns[ValidTo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CustomerName" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[BillToCustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BillToCustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerCategoryID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CustomerCategoryID" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[BuyingGroupID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BuyingGroupID" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[PrimaryContactPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PrimaryContactPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[AlternateContactPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AlternateContactPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryMethodID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DeliveryMethodID" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryCityID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DeliveryCityID" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostalCityID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PostalCityID" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreditLimit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="CreditLimit" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[AccountOpenedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="AccountOpenedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[StandardDiscountPercentage]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="StandardDiscountPercentage" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsStatementSent]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="IsStatementSent" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsOnCreditHold]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="IsOnCreditHold" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[PaymentDays]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PaymentDays" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PhoneNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[FaxNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="FaxNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryRun]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="DeliveryRun" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[RunPosition]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="RunPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[WebsiteURL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="WebsiteURL" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryAddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="DeliveryAddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryAddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="DeliveryAddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryPostalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="DeliveryPostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryLocation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="DeliveryLocation" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostalAddressLine1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PostalAddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostalAddressLine2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PostalAddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostalPostalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PostalPostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastEditedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="LastEditedBy" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="ValidFrom" />
+                    <externalMetadataColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidTo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="ValidTo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Customers_Flow\Customers_Staging_Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Customers_Flow\Customers_Staging_Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Customers_Flow\Customers_Staging_Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Customers_Flow\Customers_Staging_Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Customers_Flow.Paths[Flat File Source Output]"
+              endId="Package\Customers_Flow\Customers_Staging_Destination.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Customers_Flow\Customers_Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{88083795-27D9-4A7A-96A4-A20E2BCD40A8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{11D0C54D-2AFB-49B4-B27A-491CD74CDAB3}"
+          SQLTask:SqlStatementSource="Delete FROM Customers_Staging" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{ED0C3574-4C68-4846-91D0-624E87B18AF8}"
+      DTS:From="Package\Truncate"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Customers_Flow" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Customers_Flow"
+          TopLeft="377.5,126.5" />
+        <NodeLayout
+          Size="122,42"
+          Id="Package\Truncate"
+          TopLeft="188,34" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="249,76">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="209.5,50.5"
+              Start="0,0"
+              End="209.5,43">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.25"
+                    Point2="0,25.25"
+                    Point3="4,25.25" />
+                  <mssgle:LineSegment
+                    End="205.5,25.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="205.5,25.25"
+                    Point2="209.5,25.25"
+                    Point3="209.5,29.25" />
+                  <mssgle:LineSegment
+                    End="209.5,43" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Customers_Flow">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="237,42"
+          Id="Package\Customers_Flow\Customers_Staging_Destination"
+          TopLeft="482,221" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Customers_Flow\Customers_Source"
+          TopLeft="376,95" />
+        <EdgeLayout
+          Id="Package\Customers_Flow.Paths[Flat File Source Output]"
+          TopLeft="462.5,137">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="138,84"
+              Start="0,0"
+              End="138,76.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38"
+                    Point2="0,42"
+                    Point3="4,42" />
+                  <mssgle:LineSegment
+                    End="134,42" />
+                  <mssgle:CubicBezierSegment
+                    Point1="134,42"
+                    Point2="138,42"
+                    Point3="138,46" />
+                  <mssgle:LineSegment
+                    End="138,76.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Customers_Flow\Customers_Staging_Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

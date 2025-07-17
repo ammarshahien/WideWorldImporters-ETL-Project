@@ -1,0 +1,1010 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/9/2025 11:05:38 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-SGJNJAK"
+  DTS:CreatorName="DESKTOP-SGJNJAK\DELL"
+  DTS:DTSID="{D89E2B15-8966-4A9C-8666-C27EAC6AFAB3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{65D93B2E-869B-46D1-ADC7-1C9E94C556E4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-SGJNJAK.Staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{CD2D61C4-4174-4BAE-91F4-F10948B98411}"
+      DTS:ObjectName="DESKTOP-SGJNJAK.Staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-SGJNJAK;Initial Catalog=Staging;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{CD2D61C4-4174-4BAE-91F4-F10948B98411}DESKTOP-SGJNJAK.Staging;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[OrderLines_Staging_source]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{FC625D87-249B-4517-BDF5-F40668AEF55C}"
+      DTS:ObjectName="OrderLines_Staging_source">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\DELL\Downloads\Data_project\OrderLines.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OrderLineID"
+              DTS:DTSID="{879A0E2C-05F1-42C1-A1B4-7DD533DC33FA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OrderID"
+              DTS:DTSID="{1499D045-9A21-4F25-959F-650F03483C03}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StockItemID"
+              DTS:DTSID="{8686CA6A-3FD0-411F-BC33-A826D2658477}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Description"
+              DTS:DTSID="{A0DFA684-FE3F-48C5-96B0-2292FEA6924F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PackageTypeID"
+              DTS:DTSID="{6F4717BB-8BD5-45AC-B07B-4481052D2D64}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Quantity"
+              DTS:DTSID="{FD3AEC5A-35D0-4962-8A10-3A3C784E7AC1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UnitPrice"
+              DTS:DTSID="{FBF7548A-3648-418C-9BB4-FF6E2495A3C9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TaxRate"
+              DTS:DTSID="{7622514E-F9CF-4D1E-AAB7-D5FEC59F9149}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PickedQuantity"
+              DTS:DTSID="{E8E11B6A-FB89-4BAE-8C92-24A04BE290F8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PickingCompletedWhen"
+              DTS:DTSID="{7B40C751-A922-4E8E-A4D0-73BECC83F43D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastEditedBy"
+              DTS:DTSID="{079099E2-8E09-4AEE-9D48-BEC44475CD4E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastEditedWhen"
+              DTS:DTSID="{32ED02D5-ED37-4DCE-84EB-CC2F0AFF4115}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\OrderLines_Flow"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B2013361-6205-406B-BB03-4996BA5F36D2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="OrderLines_Flow"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\OrderLines_Flow\OrderLines_Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="OrderLines_Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\OrderLines_Flow\OrderLines_Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[OrderLines_Staging_source]"
+                  connectionManagerRefId="Package.ConnectionManagers[OrderLines_Staging_source]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[OrderLineID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[OrderLineID]"
+                      length="50"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[OrderLineID]"
+                      name="OrderLineID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[OrderID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[OrderID]"
+                      length="50"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[OrderID]"
+                      name="OrderID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[StockItemID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[StockItemID]"
+                      length="50"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[StockItemID]"
+                      name="StockItemID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[Description]"
+                      length="350"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[PackageTypeID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[PackageTypeID]"
+                      length="50"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[PackageTypeID]"
+                      name="PackageTypeID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[Quantity]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[Quantity]"
+                      length="350"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[Quantity]"
+                      name="Quantity"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[UnitPrice]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[UnitPrice]"
+                      length="350"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[UnitPrice]"
+                      name="UnitPrice"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[TaxRate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[TaxRate]"
+                      length="350"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[TaxRate]"
+                      name="TaxRate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[PickedQuantity]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[PickedQuantity]"
+                      length="350"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[PickedQuantity]"
+                      name="PickedQuantity"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[PickingCompletedWhen]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[PickingCompletedWhen]"
+                      length="350"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[PickingCompletedWhen]"
+                      name="PickingCompletedWhen"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[LastEditedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[LastEditedBy]"
+                      length="350"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[LastEditedBy]"
+                      name="LastEditedBy"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[LastEditedWhen]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[LastEditedWhen]"
+                      length="350"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[LastEditedWhen]"
+                      name="LastEditedWhen"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[OrderLineID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OrderLineID" />
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[OrderID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OrderID" />
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[StockItemID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StockItemID" />
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[PackageTypeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PackageTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[Quantity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[UnitPrice]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="UnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[TaxRate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="TaxRate" />
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[PickedQuantity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PickedQuantity" />
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[PickingCompletedWhen]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PickingCompletedWhen" />
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[LastEditedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="LastEditedBy" />
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].ExternalColumns[LastEditedWhen]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="LastEditedWhen" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\OrderLines_Flow\OrderLines_Staging_Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OrderLines_Staging_Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[OrderLines_Staging]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-SGJNJAK.Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-SGJNJAK.Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].Columns[OrderLineID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="OrderLineID"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderLineID]"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[OrderLineID]" />
+                    <inputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].Columns[OrderID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="OrderID"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderID]"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[OrderID]" />
+                    <inputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].Columns[StockItemID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="StockItemID"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[StockItemID]"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[StockItemID]" />
+                    <inputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].Columns[Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="Description"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].Columns[PackageTypeID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PackageTypeID"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[PackageTypeID]"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[PackageTypeID]" />
+                    <inputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].Columns[Quantity]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="Quantity"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[Quantity]" />
+                    <inputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].Columns[UnitPrice]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="UnitPrice"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[UnitPrice]" />
+                    <inputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].Columns[TaxRate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="TaxRate"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[TaxRate]"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[TaxRate]" />
+                    <inputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].Columns[PickedQuantity]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="PickedQuantity"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[PickedQuantity]"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[PickedQuantity]" />
+                    <inputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].Columns[PickingCompletedWhen]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="PickingCompletedWhen"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[PickingCompletedWhen]"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[PickingCompletedWhen]" />
+                    <inputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].Columns[LastEditedBy]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="LastEditedBy"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastEditedBy]"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[LastEditedBy]" />
+                    <inputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].Columns[LastEditedWhen]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="LastEditedWhen"
+                      externalMetadataColumnId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastEditedWhen]"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output].Columns[LastEditedWhen]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderLineID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OrderLineID" />
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OrderID" />
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[StockItemID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StockItemID" />
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[PackageTypeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PackageTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="UnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[TaxRate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="TaxRate" />
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[PickedQuantity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PickedQuantity" />
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[PickingCompletedWhen]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PickingCompletedWhen" />
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastEditedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="LastEditedBy" />
+                    <externalMetadataColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastEditedWhen]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="LastEditedWhen" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\OrderLines_Flow.Paths[Flat File Source Output]"
+              endId="Package\OrderLines_Flow\OrderLines_Staging_Destination.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\OrderLines_Flow\OrderLines_Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{EAFB5809-8306-486B-A5D1-BAC69296FED0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{CD2D61C4-4174-4BAE-91F4-F10948B98411}"
+          SQLTask:SqlStatementSource="DELETE FROM OrderLines_Staging" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{9A7D15DB-F940-4111-907F-8D6A79D3EBD5}"
+      DTS:From="Package\Truncate"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\OrderLines_Flow" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\OrderLines_Flow"
+          TopLeft="446.5,114.5" />
+        <NodeLayout
+          Size="122,42"
+          Id="Package\Truncate"
+          TopLeft="255,44" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="316,86">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="212,28.5"
+              Start="0,0"
+              End="212,21">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.25"
+                    Point2="0,14.25"
+                    Point3="4,14.25" />
+                  <mssgle:LineSegment
+                    End="208,14.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="208,14.25"
+                    Point2="212,14.25"
+                    Point3="212,18.25" />
+                  <mssgle:LineSegment
+                    End="212,21" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\OrderLines_Flow">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="238,42"
+          Id="Package\OrderLines_Flow\OrderLines_Staging_Destination"
+          TopLeft="493,268" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\OrderLines_Flow\OrderLines_Source"
+          TopLeft="447,73" />
+        <EdgeLayout
+          Id="Package\OrderLines_Flow.Paths[Flat File Source Output]"
+          TopLeft="534,115">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="78,153"
+              Start="0,0"
+              End="78,145.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,72.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,72.5"
+                    Point2="0,76.5"
+                    Point3="4,76.5" />
+                  <mssgle:LineSegment
+                    End="74,76.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="74,76.5"
+                    Point2="78,76.5"
+                    Point3="78,80.5" />
+                  <mssgle:LineSegment
+                    End="78,145.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\OrderLines_Flow\OrderLines_Staging_Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
