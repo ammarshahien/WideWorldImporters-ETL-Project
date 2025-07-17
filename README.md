@@ -50,9 +50,3 @@ The solution consists of two main components:
 2. Open SSIS solutions in SQL Server Data Tools
 3. Deploy packages to your SQL Server Integration Services catalog
 4. Schedule jobs in SQL Server Agent as specified in the project requirements
-
-## Screenshots
-
-![Databases](screenshots/databases.png)
-![Tables](screenshots/tables.png)
-![Jobs](screenshots/jobs.png)
