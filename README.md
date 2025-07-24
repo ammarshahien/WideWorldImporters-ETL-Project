@@ -30,7 +30,6 @@ The solution consists of two main components:
 - Implemented fact and dimension tables (prefixed with Fact_ and Dim_)
 - Created calculated columns:
   - PostalPostalCode_4 in Customers table
-  - [Other calculated columns you added]
 - Applied data filters:
   - Excluded LastEditedBy = 20
   - Excluded PostalAddressLine2 values starting with 'Z'
